@@ -7,6 +7,7 @@
 <mapper namespace="com.kuang.dao.UserDao">
 
     <!--select查询语句-->
+    <!--id绑定的接口里的方法    -->
     <select id="getUserList" resultType="com.kuang.pojo.User">
         select *
         from user;
