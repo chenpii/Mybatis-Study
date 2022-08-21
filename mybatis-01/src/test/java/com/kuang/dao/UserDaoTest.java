@@ -18,17 +18,27 @@ public class UserDaoTest {
         //第一步：获取sqlSession对象
         SqlSession sqlSession = MybatisUtils.getSqlSession();
 
-        //第二步：执行SQL
-        //方式一：getMapper
-        UserDao userDao = sqlSession.getMapper(UserDao.class);
-        List<User> userList = userDao.getUserList();
+        try {
 
-        for (User user : userList) {
-            System.out.println(user);
+            //第二步：执行SQL
+            //方式一：getMapper
+            UserDao userDao = sqlSession.getMapper(UserDao.class);
+            List<User> userList = userDao.getUserList();
+
+
+            //方式二：不推荐
+            //List<User> userList = sqlSession.selectList("com.kuang.dao.UserDao.getUserList");
+
+            for (User user : userList) {
+                System.out.println(user);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        } finally {
+            //关闭SqlSession
+            sqlSession.close();
         }
-
-        //关闭SqlSession
-        sqlSession.close();
 
     }
 }
