@@ -33,7 +33,15 @@
 
     <!--每一个Mapper.XML都需要在Mybatis核心配置文件中注册！-->
     <mappers>
+        <!-- 使用相对于类路径的资源引用 -->
         <mapper resource="com/kuang/dao/UserMapper.xml"/>
+
+        <!-- 使用映射器接口实现类的完全限定类名 -->
+        <!--        <mapper class="com.kuang.dao.UserMapper"/>-->
+
+        <!-- 将包内的映射器接口实现全部注册为映射器 -->
+        <!--        <package name="com.kuang.dao"/>-->
+
     </mappers>
 
 </configuration>

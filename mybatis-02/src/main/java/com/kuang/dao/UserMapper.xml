@@ -8,7 +8,7 @@
 
     <!--select查询语句-->
     <!--id绑定的接口里的方法    -->
-    <select id="getUserList" resultType="hello">
+    <select id="getUserList" resultType="user">
         select *
         from user;
     </select>
