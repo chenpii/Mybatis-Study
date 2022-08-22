@@ -11,6 +11,12 @@
         <property name="password" value="123456"/>
     </properties>
 
+    <!--可以给实体类起别名-->
+    <typeAliases>
+        <!--        <typeAlias type="com.kuang.pojo.User" alias="User"/>-->
+        <package name="com.kuang.pojo"/>
+    </typeAliases>
+
     <environments default="development">
 
         <environment id="development">
@@ -29,6 +35,5 @@
     <mappers>
         <mapper resource="com/kuang/dao/UserMapper.xml"/>
     </mappers>
-
 
 </configuration>
