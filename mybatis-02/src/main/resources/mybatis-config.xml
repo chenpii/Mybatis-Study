@@ -5,26 +5,21 @@
 <!--configuration核心配置文件-->
 <configuration>
 
+    <!--引入外部配置文件-->
+    <properties resource="db.properties">
+        <property name="username" value="root"/>
+        <property name="password" value="123456"/>
+    </properties>
+
     <environments default="development">
+
         <environment id="development">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url"
-                          value="jdbc:mysql://150.158.162.234:3306/mybatis?useSSL=false&amp;useUnicode=true&amp;charactorEncoding=UTF-8"/>
-                <property name="username" value="root"/>
-                <property name="password" value="310012"/>
-            </dataSource>
-        </environment>
-
-        <environment id="test">
-            <transactionManager type="JDBC"/>
-            <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url"
-                          value="jdbc:mysql://150.158.162.234:3306/mybatis?useSSL=false&amp;useUnicode=true&amp;charactorEncoding=UTF-8"/>
-                <property name="username" value="root"/>
-                <property name="password" value="310012"/>
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
             </dataSource>
         </environment>
 
@@ -34,4 +29,6 @@
     <mappers>
         <mapper resource="com/kuang/dao/UserMapper.xml"/>
     </mappers>
+
+
 </configuration>
