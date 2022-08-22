@@ -19,7 +19,6 @@ public class UserMapperTest {
     @Test
     public void test_getUserLike() {
 
-
         SqlSession sqlSession = MybatisUtils.getSqlSession();
 
         try {
