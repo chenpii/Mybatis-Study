@@ -24,14 +24,13 @@ public class UserMapperTest {
 
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         Map<String, Integer> map = new HashMap<>();
-        map.put("startIndex", 0);
+        map.put("startIndex", 1);
         map.put("pageSize", 2);
         List<User> userList = mapper.getUserByLimit(map);
         for (User user : userList) {
             logger.info(user);
         }
         sqlSession.close();
-
     }
 
     @Test
