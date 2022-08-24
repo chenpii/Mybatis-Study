@@ -18,7 +18,7 @@
         where id = #{id};
     </select>
 
-    <select id="getUserLimit" parameterType="map" resultMap="UserMap">
+    <select id="getUserByLimit" parameterType="map" resultMap="UserMap">
         select *
         from user limit ${startIndex},${pageSize};
     </select>

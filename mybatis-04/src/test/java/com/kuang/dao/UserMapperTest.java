@@ -19,14 +19,14 @@ public class UserMapperTest {
     static Logger logger = Logger.getLogger(UserMapperTest.class);
 
     @Test
-    public void getUserLimit() {
+    public void getUserByLimit() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
 
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         Map<String, Integer> map = new HashMap<>();
         map.put("startIndex", 0);
         map.put("pageSize", 2);
-        List<User> userList = mapper.getUserLimit(map);
+        List<User> userList = mapper.getUserByLimit(map);
         for (User user : userList) {
             logger.info(user);
         }

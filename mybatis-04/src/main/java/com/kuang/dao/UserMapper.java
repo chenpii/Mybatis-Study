@@ -15,5 +15,5 @@ public interface UserMapper {
     User getUserById(int id);
 
     //分页
-    List<User> getUserLimit(Map<String, Integer> map);
+    List<User> getUserByLimit(Map<String, Integer> map);
 }
