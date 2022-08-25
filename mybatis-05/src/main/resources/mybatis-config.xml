@@ -8,11 +8,6 @@
     <!--引入外部配置文件-->
     <properties resource="db.properties"/>
 
-    <settings>
-        <!--LOG4J-->
-        <setting name="logImpl" value="LOG4J"/>
-    </settings>
-
     <!--可以给实体类起别名-->
     <typeAliases>
         <package name="com.kuang.pojo"/>
