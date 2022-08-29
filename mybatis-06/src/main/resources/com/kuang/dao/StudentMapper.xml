@@ -41,7 +41,7 @@
     <select id="getTeacher" resultType="Teacher">
         select *
         from teacher
-        where id = #{id};
+        where id = #{tid};
     </select>
 
 </mapper>
