@@ -19,4 +19,14 @@ public class StudentMapperTest {
 
         sqlSession.close();
     }
+    @Test
+    public void getStudent2() {
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
+        for (Student student : mapper.getStudent2()) {
+            logger.info(student);
+        }
+
+        sqlSession.close();
+    }
 }
