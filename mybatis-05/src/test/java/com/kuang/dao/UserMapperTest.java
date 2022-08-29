@@ -50,4 +50,12 @@ public class UserMapperTest {
 
         sqlSession.close();
     }
+
+    @Test
+    public void delUser() {
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        mapper.delUser(6);
+        sqlSession.close();
+    }
 }
