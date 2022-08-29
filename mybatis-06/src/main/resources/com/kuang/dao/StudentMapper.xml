@@ -3,5 +3,30 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.kuang.dao.StudentMapper">
+    <!--
+        思路：
+            1.查询所有的学生信息
+            2.根据查询出来的tid，查询对应的老师信息
+
+    -->
+    <select id="getStudent" resultMap="StudentTeacher">
+        select *
+        from student;
+    </select>
+
+    <resultMap id="StudentTeacher" type="Student">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <!--复杂的属性需要单独处理
+            -->
+        <association property=""/>
+        <collection property=""/>
+    </resultMap>
+
+    <select id="getTeacher" resultType="Teacher">
+        select *
+        from teacher
+        where id = #{id};
+    </select>
 
 </mapper>
