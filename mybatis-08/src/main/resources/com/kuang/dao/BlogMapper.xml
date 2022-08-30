@@ -25,7 +25,31 @@
     <select id="queryBlogChoose" parameterType="map" resultType="blog">
         select *
         from blog
-
+        <where>
+            <choose>
+                <when test="title !=null">
+                    title = #{title}
+                </when>
+                <when test="author !=null">
+                    author = #{author}
+                </when>
+                <otherwise>
+                    views = #{views}
+                </otherwise>
+            </choose>
+        </where>
     </select>
 
+    <update id="updateBlog" parameterType="map">
+        update blog
+        <set>
+            <if test="title !=null">
+                title =#{title},
+            </if>
+            <if test="author !=null">
+                author =#{author},
+            </if>
+        </set>
+        where id =#{id}
+    </update>
 </mapper>
