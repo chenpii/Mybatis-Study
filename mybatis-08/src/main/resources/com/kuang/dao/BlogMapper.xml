@@ -9,16 +9,20 @@
         values (#{id}, #{title}, #{author}, #{createTime}, #{views});
     </insert>
 
+    <sql id="if-title-author">
+        <if test="title !=null">
+            and title=#{title}
+        </if>
+        <if test="author !=null">
+            and author=#{author}
+        </if>
+    </sql>
+
     <select id="queryBlog" parameterType="map" resultType="blog">
         select *
         from blog
         <where>
-            <if test="title !=null">
-                and title=#{title}
-            </if>
-            <if test="author !=null">
-                and author=#{author}
-            </if>
+            <include refid="if-title-author"/>
         </where>
     </select>
 
@@ -52,4 +56,18 @@
         </set>
         where id =#{id}
     </update>
+
+    <!--
+        select * from blog where id in (1,2,3)
+        我们现在传递一个万能的map，这map中可以存在一个集合
+    -->
+    <select id="queryBlogForeach" parameterType="map" resultType="blog">
+        select * from blog
+        <where>
+            id in
+            <foreach collection="ids" item="id" open="(" separator="," close=")">
+                #{id}
+            </foreach>
+        </where>
+    </select>
 </mapper>
