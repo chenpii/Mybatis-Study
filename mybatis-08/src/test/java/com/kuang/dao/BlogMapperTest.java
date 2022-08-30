@@ -110,7 +110,6 @@ public class BlogMapperTest {
             System.out.println(blog);
         }
 
-
         sqlSession.close();
     }
 }
