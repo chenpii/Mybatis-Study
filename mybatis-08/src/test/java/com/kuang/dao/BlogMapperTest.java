@@ -52,7 +52,8 @@ public class BlogMapperTest {
         BlogMapper mapper = sqlSession.getMapper(BlogMapper.class);
 
         Map<String, Object> map = new HashMap<>();
-        map.put("title", "Java如此简单");
+        //map.put("title", "Java如此简单");
+        map.put("author", "狂神说");
 
         List<Blog> blogs = mapper.queryBlog(map);
         for (Blog blog : blogs) {

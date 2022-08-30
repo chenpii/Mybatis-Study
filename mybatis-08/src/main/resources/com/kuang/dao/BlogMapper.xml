@@ -12,13 +12,20 @@
     <select id="queryBlog" parameterType="map" resultType="blog">
         select *
         from blog
-        where 1=1
-        <if test="title !=null">
-            and title=#{title}
-        </if>
-        <if test="author !=null">
-            and author=#{author}
-        </if>
+        <where>
+            <if test="title !=null">
+                and title=#{title}
+            </if>
+            <if test="author !=null">
+                and author=#{author}
+            </if>
+        </where>
+    </select>
+
+    <select id="queryBlogChoose" parameterType="map" resultType="blog">
+        select *
+        from blog
+
     </select>
 
 </mapper>
