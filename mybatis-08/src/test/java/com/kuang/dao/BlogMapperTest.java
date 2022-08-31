@@ -3,6 +3,7 @@ package com.kuang.dao;
 import com.kuang.pojo.Blog;
 import com.kuang.utils.IDutils;
 import com.kuang.utils.MybatisUtils;
+import org.apache.ibatis.cache.Cache;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
