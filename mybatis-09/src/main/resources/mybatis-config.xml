@@ -10,6 +10,8 @@
         <setting name="logImpl" value="LOG4J"/>
         <!--是否开启驼峰命名自动映射-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--显示地开启全局缓存-->
+        <setting name="cacheEnabled" value="true"/>
     </settings>
 
     <typeAliases>
