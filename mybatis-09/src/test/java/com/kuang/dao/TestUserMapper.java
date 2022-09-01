@@ -22,7 +22,9 @@ public class TestUserMapper {
         map.put("id", 1);
         map.put("name", "狂神2");
         map.put("pwd", "888888");
-        mapper.updateUser(map);
+        //mapper.updateUser(map);
+
+        sqlSession.clearCache();//手动清理一级缓存
 
         System.out.println("==================================================");
         User user2 = mapper.queryUserByID(1);
