@@ -36,19 +36,27 @@ public class TestUserMapper {
     @Test
     public void test_getUsers2() {
         SqlSession sqlSession = MybatisUtils.getSqlSession();
-        SqlSession sqlSession2 = MybatisUtils.getSqlSession();
 
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        UserMapper mapper2 = sqlSession2.getMapper(UserMapper.class);
 
         User user = mapper.queryUserByID(1);
         System.out.println(user);
-
         sqlSession.close();
+
         System.out.println("==================================================");
+        SqlSession sqlSession2 = MybatisUtils.getSqlSession();
+        UserMapper mapper2 = sqlSession2.getMapper(UserMapper.class);
+
         User user2 = mapper2.queryUserByID(1);
         System.out.println(user2);
         System.out.println(user == user2);
+
+        User user3 = mapper2.queryUserByID(2);
+        System.out.println(user3);
+
+        User user4 = mapper2.queryUserByID(2);
+        System.out.println(user4);
+        System.out.println(user3==user4);
 
         sqlSession2.close();
 
